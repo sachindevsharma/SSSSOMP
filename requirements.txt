@@ -7,5 +7,5 @@ dash_bootstrap_templates
 whitenoise==5.2.0
 nsetools
 requests
-# pymongo[srv]
+pymongo[srv]
 flask-restful
