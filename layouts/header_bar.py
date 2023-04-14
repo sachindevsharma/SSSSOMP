@@ -20,8 +20,8 @@ def build_banner(app):
         dbc.Row([
             dbc.Col(html.Img(src=app.get_asset_url("logo.png")), width=3), 
             dbc.Col(width="auto", children=[
-                html.H1("SRI SATHYA SAI SEVA ORGANIZATION", ),
-                html.H4("Madhya Pradesh", className="logo")
+                html.H1("SRI SATHYA SAI SEVA ORGANIZATION", className="mb-0"),
+                html.H4("Madhya Pradesh", className="logo_state")
             ]),
         ]),
         dbc.Row(id="header_tabs_1", children=
@@ -41,7 +41,7 @@ def build_banner(app):
             # dbc.Col(html.I(className="fa fa-home"),),
             dbc.Col(width="auto", class_name="center", children=[
                 dbc.NavbarToggler(id="navbar-toggler11", className="pull-right"),
-                dbc.Collapse(build_tabs_2(), id="navbar-collapse11", navbar=True, is_open=True),
+                dbc.Collapse(build_tabs_2(), className="tabs", id="navbar-collapse11", navbar=True, is_open=True),
             ]),
 
         ]),

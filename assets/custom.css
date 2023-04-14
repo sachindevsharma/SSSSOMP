@@ -88,6 +88,14 @@
   align-content: center;
 }
 
+.logo_state {
+  font-style: italic;
+  margin-top: 0;
+  display: flex;
+  justify-content: right;
+  align-content: center;
+}
+
 .popover {
   max-width: auto !important;
   margin-left: 0
@@ -97,14 +105,18 @@
   background-color: green;
   height: 5vh !important;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  /* justify-content: center;
+  align-content: center; */
   margin: 0;
 }
 
+
 #header_tabs_1 .col .row {
   margin: 0;
+  justify-content: center;
+  align-content: center;
 }
+
 
 /* #header_tabs_1:hover {
   background-color: #fa5c20 ;
@@ -125,7 +137,7 @@
 
 /*------------------------- TABS ------------------------------------*/
 
-#header_tabs {
+.center {
   display: flex;
   justify-content: center;
   align-content: center;
