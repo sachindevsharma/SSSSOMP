@@ -8,7 +8,7 @@ size_dict = {"xs": 10, "sm": 10, "md": 10, "lg": 3}
 size_dict_1 = {"xs": 10, "sm": 10, "md": 10, "lg": 9}
 
 def build_header_bar(app):
-    return dbc.Navbar(className="banner", sticky="top", children=[
+    return html.Div(className="banner", children=[
         build_banner(app),
         build_intervals_div()
     ])
@@ -41,7 +41,7 @@ def build_banner(app):
             # dbc.Col(html.I(className="fa fa-home"),),
             dbc.Col(width="auto", class_name="center", children=[
                 dbc.NavbarToggler(id="navbar-toggler11", className="pull-right"),
-                dbc.Collapse(dbc.Nav(build_tabs_2(), navbar=True), id="navbar-collapse11", navbar=True),
+                dbc.Collapse(build_tabs_2(), id="navbar-collapse11", navbar=True, is_open=True),
             ]),
 
         ]),

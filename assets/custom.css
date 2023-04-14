@@ -132,6 +132,9 @@
 }
 .tab_name {
   color: whitesmoke !important;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .tab_name:hover {

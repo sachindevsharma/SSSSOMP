@@ -1,4 +1,3 @@
-import dash
 from dash import Input, State, Output, ctx
 
 from .tab1_callbacks import callbacks_tab1

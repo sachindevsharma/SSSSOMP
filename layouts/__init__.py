@@ -1,5 +1,4 @@
 from dash import html, register_page, page_container
-import dash_bootstrap_components as dbc
 
 from .header_bar import build_header_bar
 from .tab1_layout import build_tab1_content
@@ -7,6 +6,7 @@ from .tab2_layout import build_tab2_content
 from .tab3_layout import build_tab3_content
 from .tab4_layout import build_tab4_content
 from .tab5_layout import build_tab5_content
+from .tab6_layout import build_tab6_content
 
 
 def Layout(app):
@@ -38,7 +38,7 @@ def register_app_pages():
         ["sss_life", "His Life", '/his_life', build_tab5_content()],
         ["sss_message", "His Message", '/his_message', build_tab5_content()],
         ["sss_coc", "Code of Conduct", '/code_of_conduct', build_tab5_content()],
-        ["sss_discourses", "Discourses", '/discourses', build_tab5_content()],
+        ["sss_discourses", "Discourses", '/discourses', build_tab6_content()],
         
         # Wings
         ["wings_spiritual", "Spiritual Wing", '/wings/spiritual', build_tab5_content()],

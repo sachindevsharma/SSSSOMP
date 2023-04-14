@@ -8,9 +8,10 @@ from sql import MongoConnector
 
 
 client = MongoConnector().connect()
+
 app = dash.Dash(__name__, 
            update_title=None,
-           title='Analysis', 
+           title='SSSSOMP', 
            external_stylesheets=[dbc.themes.BOOTSTRAP, 
                                  'https://use.fontawesome.com/releases/v6.2.1/css/all.css'], 
            pages_folder="layouts",
