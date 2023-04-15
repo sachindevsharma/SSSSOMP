@@ -4,42 +4,56 @@ import dash_bootstrap_components as dbc
 from assets import dropdown_values
 from dash_bootstrap_templates import ThemeChangerAIO
 
-size_dict = {"xs": 10, "sm": 10, "md": 10, "lg": 3}
-size_dict_1 = {"xs": 10, "sm": 10, "md": 10, "lg": 9}
+
+def width_dict_same(width):
+    size = ["xs", "sm", "md", "lg", "xl"]
+    data = {i: width for i in size}
+    return data
+
+def width_dict_multi(small, medium, large):
+    return {"xs": small, "sm": small, "md": medium, "lg": large, "xl": large}
+
 
 def build_header_bar(app):
-    return html.Div(className="banner", children=[
-        build_banner(app),
-        build_intervals_div()
+    return html.Div([
+            build_banner(app),
+            html.Br(),
+            build_banner_2(app),
+            html.Br()
     ])
     
     
 def build_banner(app):
     
-    return dbc.Container(children=[
+    return html.Div(className="banner", children=[
         dbc.Row([
-            dbc.Col(html.Img(src=app.get_asset_url("logo.png")), width=3), 
-            dbc.Col(width="auto", children=[
-                html.H1("SRI SATHYA SAI SEVA ORGANIZATION", className="mb-0"),
-                html.H4("Madhya Pradesh", className="logo_state")
+            dbc.Col(html.Img(src=app.get_asset_url("logo.png")), **width_dict_same(3)), 
+            dbc.Col(width="auto", **width_dict_multi(9, "auto", 9),      children=[
+                dbc.Row(html.H2("SRI SATHYA SAI SEVA ORGANIZATION", className="header")),
+                dbc.Row(html.H4("Madhya Pradesh", className="header"))
             ]),
         ]),
-        dbc.Row(id="header_tabs_1", children=
-            dbc.Col(children=[
-                build_tabs()
-                # dbc.NavbarToggler(id="navbar-toggler11", className="pull-right"),
-                # dbc.Collapse(dbc.Nav(build_tabs(), navbar=True), id="navbar-collapse11", navbar=True),
-            ]),
+        dbc.Row(id="header_tabs_1", children=build_tabs(),
+            # dbc.Col(children=build_tabs()),
         ),
+        # ],**size_dict),
+        # ThemeChangerAIO(aio_id="theme", 
+        #                 button_props={"color": "primary", "style": {"height": "auto", "width": "5vw"}},
+        #                 radio_props={"value": dbc.themes.CERULEAN})
+    ])
+
+def build_banner_2(app):
+    
+    return html.Div(className="new", children=[
         dbc.Row([
         
             dbc.Col(html.Img(src=app.get_asset_url("logo.png")), width=1), 
             dbc.Col(width="auto", children=[
-                html.H6("SRI SATHYA SAI SEVA", className="logo"),
-                html.H6("ORGANIZATION, MP", className="logo")
+                html.H6("SRI SATHYA SAI SEVA", className="header"),
+                html.H6("ORGANIZATION, MP", className="header")
             ]),
             # dbc.Col(html.I(className="fa fa-home"),),
-            dbc.Col(width="auto", class_name="center", children=[
+            dbc.Col(class_name="center", children=[
                 dbc.NavbarToggler(id="navbar-toggler11", className="pull-right"),
                 dbc.Collapse(build_tabs_2(), className="tabs", id="navbar-collapse11", navbar=True, is_open=True),
             ]),
@@ -64,10 +78,7 @@ def build_tabs():
     tabs = [dbc.Col(html.H6([i, " ", html.I(className="fa fa-chevron-down fa-2xs fa-beat")]), id=i, class_name="tab_name", width="auto") 
             for i in header_tabs]
 
-    return html.Div(children=[
-        dbc.Row(tabs),
-        *get_popover_data()
-    ])
+    return [*tabs, *get_popover_data()]
 
 def build_tabs_2():
     # The keys of this dictionary should be same as module defined in 

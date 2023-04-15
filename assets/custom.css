@@ -27,12 +27,15 @@
   font: 14px var(--font)
 }
 
-/* body { */
+* { 
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
   /* background-color: var(--bg-color-dark); */
   /* color: var(--font-color-dark); */
   /* height: 100vh; */
   /* margin: 0; */
-/* } */
 
 /*------------------------- DIVs ------------------------------------*/
 
@@ -52,7 +55,8 @@
 .center {
   display: flex;
   justify-content: center;
-  align-content: center;
+  /* align-content: center; */
+  /* align-items: center; */
 }
 
 /*------------------------- BANNER ------------------------------------*/
@@ -60,40 +64,32 @@
 .banner {
   /* height: 8vh; */
   align-items: center;
+  margin: 0;
   background-color: #8EE4AF !important;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  /* top: 0; */
 }
 
-.banner Img {
-  height: 8vh;
-  width: 5vw;
-  /* min-height: 100px; */
+.new {
+  background-color: rgb(150, 127, 255);
+  margin: 0vw;
+  justify-content: space-between;
+}
+
+.banner Img, .new Img {
+  height: 10vh;
   min-width: 100px;
   object-fit: fill;
 }
 
-.banner .container {
-  margin: 0.5vw 0vw;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  display: inline;
-  box-sizing: border-box;
-  /* justify-content: flex-start !important; */
-}
 
-.banner .logo {
-  margin: 0;
-  display: flex;
+.header {
+  margin-bottom: 0;
+  display: flex !important;
   justify-content: center;
   align-content: center;
-}
-
-.logo_state {
   font-style: italic;
-  margin-top: 0;
-  display: flex;
-  justify-content: right;
-  align-content: center;
 }
 
 .popover {
@@ -101,26 +97,20 @@
   margin-left: 0
 }
 
-#header_tabs_1 {
-  background-color: green;
-  height: 5vh !important;
-  display: flex;
-  /* justify-content: center;
-  align-content: center; */
-  margin: 0;
-}
 
 
-#header_tabs_1 .col .row {
-  margin: 0;
+
+/* #header_tabs_1 .col .row { */
+  /* margin: 0;
   justify-content: center;
   align-content: center;
-}
-
-
-/* #header_tabs_1:hover {
-  background-color: #fa5c20 ;
 } */
+
+/* .tabs {
+  position: absolute;
+  top: 50%;
+} */
+
 /*------------------------- CAROUSEL ------------------------------------*/
 
 
@@ -137,16 +127,20 @@
 
 /*------------------------- TABS ------------------------------------*/
 
-.center {
+#header_tabs_1 {
+  background-color: green;
   display: flex;
-  justify-content: center;
+  justify-content: center ;
   align-content: center;
+  /* margin: 0; */
 }
+
 .tab_name {
   color: whitesmoke !important;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-content: center;
+  flex-wrap: wrap;
 }
 
 .tab_name:hover {

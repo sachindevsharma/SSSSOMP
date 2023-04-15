@@ -14,6 +14,7 @@ app = dash.Dash(__name__,
            title='SSSSOMP', 
            external_stylesheets=[dbc.themes.BOOTSTRAP, 
                                  'https://use.fontawesome.com/releases/v6.2.1/css/all.css'], 
+            meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
            pages_folder="layouts",
            use_pages=True)
 
