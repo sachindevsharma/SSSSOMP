@@ -19,18 +19,98 @@ def build_header_bar(app):
             build_banner(app),
             html.Br(),
             build_banner_2(app),
-            html.Br()
+            html.Br(), 
+            # navbar
     ])
+
+def build_tabs_2():
+    # The keys of this dictionary should be same as module defined in 
+    # layouts/__init__.py while registering pages 
+
+    header_tabs = ["Sri Sathya Sai Baba", "Organisation", "Wings", 
+                   "Activities", "Gallery", "Services", "Contact Us"]
+    
+    # fa-duotone fa-square-chevron-down
+    tabs = [dbc.Col(html.H6([i, " ", html.I(className="fa fa-chevron-down fa-2xs fa-beat")]), id=i+'2', class_name="tab_name", width="auto") 
+            for i in header_tabs]
+
+    return html.Div(children=[
+        dbc.Row(tabs),
+        *get_popover_data()
+    ])
+
+
+
+def get_popover_data():
+    popover_data = []
+
+    for name in ["Sri Sathya Sai Baba", "Wings", "Activities", "Services"]:
+
+        start = "sss" if name == "Sri Sathya Sai Baba" else name.lower()
+        popover_content = dbc.PopoverBody([
+            # dbc.DropdownMenuItem(divider=True),
+            *[_get_nav_link(i) for i in dash.page_registry.keys() if i.startswith(start)]
+        ])
+        popover = dbc.Popover(popover_content, offset=0, hide_arrow=True,
+                              target=name, trigger="hover", placement="bottom-start"
+                             )
+        popover_data.append(popover)
+
+    return popover_data
+
+
+search_bar = dbc.Row(
+    [
+        dbc.Col(dbc.Input(type="search", placeholder="Search")),
+        dbc.Col(
+            dbc.Button(
+                "Search", color="primary", className="ms-2", n_clicks=0
+            ),
+            width="auto",
+        ),
+    ],
+    className="g-0 ms-auto flex-nowrap mt-3 mt-md-0",
+    align="center",
+)
+
+navbar = dbc.Navbar(
+    dbc.Container(
+        [
+            html.A(
+                # Use row and col to control vertical alignment of logo / brand
+                dbc.Row(
+                    [
+                        # dbc.Col(html.Img(src=PLOTLY_LOGO, height="30px")),
+                        dbc.Col(dbc.NavbarBrand("Navbar", className="ms-2")),
+                    ],
+                    align="center",
+                    className="g-0",
+                ),
+                href="https://plotly.com",
+                style={"textDecoration": "none"},
+            ),
+            dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
+            dbc.Collapse(
+                build_tabs_2(),
+                id="navbar-collapse",
+                is_open=False,
+                navbar=True,
+            ),
+        ]
+    ),
+    color="dark",
+    dark=True,
+)
     
     
 def build_banner(app):
     
     return html.Div(className="banner", children=[
         dbc.Row([
-            dbc.Col(html.Img(src=app.get_asset_url("logo.png")), **width_dict_same(3)), 
-            dbc.Col(width="auto", **width_dict_multi(9, "auto", 9),      children=[
+            dbc.Col(html.A(html.Img(src=app.get_asset_url("logo.png")), href="/"), **width_dict_multi(3, "auto", "auto")), 
+            dbc.Col(width="auto", **width_dict_multi(9, "auto", "auto"),      children=[
                 dbc.Row(html.H2("SRI SATHYA SAI SEVA ORGANIZATION", className="header")),
-                dbc.Row(html.H4("Madhya Pradesh", className="header"))
+                dbc.Row(html.H6("Madhya Pradesh", className="header"))
             ]),
         ]),
         dbc.Row(id="header_tabs_1", children=build_tabs(),
@@ -44,26 +124,22 @@ def build_banner(app):
 
 def build_banner_2(app):
     
-    return html.Div(className="new", children=[
+    return dbc.Navbar(className="new", expand="md", children=[
         dbc.Row([
         
-            dbc.Col(html.Img(src=app.get_asset_url("logo.png")), width=1), 
-            dbc.Col(width="auto", children=[
-                html.H6("SRI SATHYA SAI SEVA", className="header"),
-                html.H6("ORGANIZATION, MP", className="header")
-            ]),
+            dbc.Col(html.A(html.Img(src=app.get_asset_url("Logo_name-removebg-preview.png")), href="/"), width="auto"), 
+            # dbc.Col(width="auto", children=[
+            #     html.H6("SRI SATHYA SAI SEVA", className="header"),
+            #     html.H6("ORGANIZATION", className="header"),
+            #     html.H6("Madhya Pradesh", className="header")
+            # ]),
             # dbc.Col(html.I(className="fa fa-home"),),
-            dbc.Col(class_name="center", children=[
-                dbc.NavbarToggler(id="navbar-toggler11", className="pull-right"),
-                dbc.Collapse(build_tabs_2(), className="tabs", id="navbar-collapse11", navbar=True, is_open=True),
+            dbc.Col(width="auto", children=[
+                dbc.NavbarToggler(id="navbar-toggler", className="float-right"),
+                dbc.Collapse(build_tabs_2(), className="float-right",id="navbar-collapse", navbar=True, is_open=False),
             ]),
 
         ]),
-        
-        # ],**size_dict),
-        # ThemeChangerAIO(aio_id="theme", 
-        #                 button_props={"color": "primary", "style": {"height": "auto", "width": "5vw"}},
-        #                 radio_props={"value": dbc.themes.CERULEAN})
     ])
 
 
@@ -71,11 +147,19 @@ def build_tabs():
     # The keys of this dictionary should be same as module defined in 
     # layouts/__init__.py while registering pages 
 
-    header_tabs = ["Sri Sathya Sai Baba", "Organisation", "Wings", 
-                   "Activities", "Gallery", "Services", "Contact Us"]
-    
+    arrow_down = html.I(className="fa fa-chevron-down fa-2xs fa-beat")
+
+    header_tabs = [
+                   ["Sri Sathya Sai Baba", " ", arrow_down],
+                   ["SSSSOMP", " "],
+                   ["Wings", " ", arrow_down],
+                   ["Activities", " ", arrow_down],
+                   ["Gallery", " "],
+                   ["Services", " ", arrow_down], 
+                   ["Contact Us", " "],
+                   ]
     # fa-duotone fa-square-chevron-down
-    tabs = [dbc.Col(html.H6([i, " ", html.I(className="fa fa-chevron-down fa-2xs fa-beat")]), id=i, class_name="tab_name", width="auto") 
+    tabs = [dbc.Col(html.H6(i), id=i[0], class_name="tab_name", width="auto") 
             for i in header_tabs]
 
     return [*tabs, *get_popover_data()]
@@ -91,7 +175,7 @@ def build_tabs_2():
     tabs = [dbc.Col(html.H6([i, " ", html.I(className="fa fa-chevron-down fa-2xs fa-beat")]), id=i+'2', class_name="tab_name", width="auto") 
             for i in header_tabs]
 
-    return html.Div(children=[
+    return html.Div( children=[
         dbc.Row(tabs),
         *get_popover_data()
     ])

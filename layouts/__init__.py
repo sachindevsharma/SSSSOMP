@@ -34,11 +34,13 @@ def register_app_pages():
         ["tab5", "Gallery", '/gallery', build_tab5_content()],
         ["tab7", "Contact Us", '/state_office', build_tab5_content()],
 
-        # Services
+        # Sri Sathya Sai Baba
         ["sss_life", "His Life", '/his_life', build_tab5_content()],
         ["sss_message", "His Message", '/his_message', build_tab5_content()],
-        ["sss_coc", "Code of Conduct", '/code_of_conduct', build_tab5_content()],
+        ["sss_coc", "9 point Code of Conduct", '/code_of_conduct', build_tab5_content()],
+        ["sss_daily_prayers", "Daily Prayers", '/daily_prayers', build_tab6_content()],
         ["sss_discourses", "Discourses", '/discourses', build_tab6_content()],
+        ["sss_state_office", "State Office Bearers", '/state/office_bearers', build_tab6_content()],
         
         # Wings
         ["wings_spiritual", "Spiritual Wing", '/wings/spiritual', build_tab5_content()],
@@ -46,7 +48,7 @@ def register_app_pages():
         ["wings_service", "Service Wing", '/wings/service', build_tab5_content()],
         ["wings_youth", "Youth Wing", '/wings/youth', build_tab5_content()],
 
-        # Wings
+        # Activities
         ["activities_ps", "Prashanti Sewa", '/prashanti_sewa', build_tab5_content()],
         ["activities_dm", "Disaster Management", '/disaster_management', build_tab5_content()],
         ["activities_ss", "Sadhna Shivir", '/sadhna_shivir', build_tab5_content()],
@@ -55,6 +57,7 @@ def register_app_pages():
         # Services
         ["services_ss", "Sanatan Sarthi Hindi", '/sanatan_sarthi_hindi', build_tab5_content()],
         ["services_so", "Sai One", '/sai_one', build_tab5_content()],
+        ["services_sr", "Sewa Registration Report", '/sewa_registration_report', build_tab5_content()],
     ]       
 
     for order, (module , name, path, layout) in enumerate(page_values):
