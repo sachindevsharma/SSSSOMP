@@ -233,6 +233,12 @@
   inherits: false;
 }
 
+.numbers {
+  font: 800 40px system-ui;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .number_counter {
   transition: --num 1s;
   counter-reset: num var(--num);

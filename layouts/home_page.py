@@ -5,10 +5,9 @@ import dash_bootstrap_components as dbc
 from helper_functions import build_figure
 
 
-def build_tab1_content():
+def build_home_page():
     layout = html.Div(id = "Tab1_div",children=[
         build_carousel(),
-        html.Br(),
         build_numbers_div(),
         build_buttons_div()
     ])
@@ -38,31 +37,12 @@ def build_numbers_div():
         html.Br(),
         dbc.Row([
             dbc.Col(width=2),
-            dbc.Col([
-                dbc.Row(class_name="number_counter"),
-                dbc.Row("Districts")
-            ]),
-            dbc.Col([
-                dbc.Row(class_name="number_counter"),
-                dbc.Row("Samitis")
-            ]),
-            dbc.Col([
-                dbc.Row(class_name="number_counter"),
-                dbc.Row("Bhajan Mandalis")
-            ]),
+            dbc.Col([html.H1(34, className="numbers"), dbc.Row("Districts", className="center")]),
+            dbc.Col([html.H1(223, className="numbers"), dbc.Row("Samitis", className="center")]),
+            dbc.Col([html.H1(250, className="numbers"), dbc.Row("Bhajan Mandalis", className="center")]),
+            dbc.Col([html.H1(className="number_counter center"), dbc.Row("Number Counter", className="center")]),
         ]),
         html.Br(),
-        html.Div([
-            dcc.Interval(
-                id='interval-component',
-                interval=1,  # update every 100 milliseconds
-                n_intervals=0
-            ),
-            html.Div(0,
-                id='number-counter',
-                style={'fontSize': 50}
-            )
-        ])
     ])
 
 def build_buttons_div():

@@ -1,7 +1,7 @@
 from dash import html, register_page, page_container
 
 from .header_bar import build_header_bar
-from .tab1_layout import build_tab1_content
+from .home_page import build_home_page
 from .tab2_layout import build_tab2_content
 from .tab3_layout import build_tab3_content
 from .tab4_layout import build_tab4_content
@@ -36,7 +36,7 @@ def register_app_pages():
 
     page_values = [
         # id , name, path, layout
-        ["tab1", "Home", '/', build_tab1_content()],
+        ["tab1", "Home", '/', build_home_page()],
         ["tab2", "About Us", '/about', build_tab2_content()],
         ["tab3", "Wings", '/wings', build_tab3_content()],
         ["tab4", "Activities", '/activities', build_tab4_content()],
