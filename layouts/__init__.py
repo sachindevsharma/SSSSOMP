@@ -7,17 +7,26 @@ from .tab3_layout import build_tab3_content
 from .tab4_layout import build_tab4_content
 from .tab5_layout import build_tab5_content
 from .tab6_layout import build_tab6_content
+from .wings_education import build_wings_education
+from .wings_spiritual import build_wings_spiritual
 
-
-def Layout(app):
+def Layout():
 
     return html.Div(id="main_div", children=[    
-        build_header_bar(app),
+        build_header_bar(),
         html.Div(id='second_div', children=[
             page_container
 
         # END OF 2nd Division   
         ]),
+        html.Br(),
+        html.Footer(" © Copyright Sri Sathya Sai Seva Organisation Madhya Pradesh - All Rights Reserved",
+            id="footer", 
+            style={"textAlign": "center", "padding": "10px"},
+        ),
+
+        # This div is for firing callbacks while loading only and nothing else
+        html.Div(id="loading_div"),      
 
     # END OF MAIN DIV
     ])
@@ -43,8 +52,8 @@ def register_app_pages():
         ["sss_state_office", "State Office Bearers", '/state/office_bearers', build_tab6_content()],
         
         # Wings
-        ["wings_spiritual", "Spiritual Wing", '/wings/spiritual', build_tab5_content()],
-        ["wings_education", "Education Wing", '/wings/education', build_tab5_content()],
+        ["wings_spiritual", "Spiritual Wing", '/wings/spiritual', build_wings_spiritual()],
+        ["wings_education", "Education Wing", '/wings/education', build_wings_education()],
         ["wings_service", "Service Wing", '/wings/service', build_tab5_content()],
         ["wings_youth", "Youth Wing", '/wings/youth', build_tab5_content()],
 

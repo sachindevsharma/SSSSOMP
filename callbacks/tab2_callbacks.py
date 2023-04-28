@@ -7,7 +7,7 @@ nse = Nse()
 # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv')
 
 
-def callbacks_tab2(app):
+def callbacks_tab2():
     ''''''
 
     # @app.callback([Output('stock_graph','figure')],
