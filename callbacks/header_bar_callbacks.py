@@ -2,8 +2,7 @@ import dash
 from dash import html, Input, State, Output, ctx
 import dash_bootstrap_components as dbc
 import requests
-
-API_BASE_URL = "http://127.0.0.1:8050"
+from flask import request
 
 
 def callbacks_header_bar():
@@ -23,6 +22,8 @@ def callbacks_header_bar():
         Input("loading_div", "children"),
     )
     def test_api(n):
+        # print(dir(dash.get_app()))
+        API_BASE_URL = request.host_url
         data = requests.post(API_BASE_URL + '/api/header/options').json()
         arrow_down = "fa fa-chevron-down fa-2xs fa-beat"
 
@@ -73,6 +74,7 @@ def callbacks_header_bar():
         Input("loading_div", "children"),
     )
     def test_api(n):
+        API_BASE_URL = request.host_url
         data = requests.post(API_BASE_URL + '/api/header/options').json()
         arrow_down = html.I(className="fa fa-chevron-down fa-2xs fa-beat")
 
