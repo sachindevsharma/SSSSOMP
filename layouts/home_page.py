@@ -2,7 +2,6 @@
 import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
-from helper_functions import build_figure
 
 
 def build_home_page():

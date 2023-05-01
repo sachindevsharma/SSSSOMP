@@ -64,9 +64,10 @@ def register_app_pages():
         ["activities_vj", "Vidya Jyoti", '/vidya_jyoti', build_tab5_content()],
 
         # Services
-        ["services_ss", "Sanatan Sarthi Hindi", '/sanatan_sarthi_hindi', build_tab5_content()],
-        ["services_so", "Sai One", '/sai_one', build_tab5_content()],
-        ["services_sr", "Sewa Registration Report", '/sewa_registration_report', build_tab5_content()],
+        ["services_so", "Sai One", '/sai_one', ""],
+        ["services_ss", "Sanatan Sarthi Hindi", '/sanatan_sarthi_hindi', ""],
+        ["services_sc", "Sewa Coordinator", '/sewa_coordinator', ""],
+        ["services_sr", "Sewa Registration Report", '/sewa_registration_report', ""],
     ]       
 
     for order, (module , name, path, layout) in enumerate(page_values):

@@ -1,19 +1,7 @@
 import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
-from assets import dropdown_values
-from dash_bootstrap_templates import ThemeChangerAIO
-import requests
-from flask import request
-
-
-def width_dict_same(width):
-    size = ["xs", "sm", "md", "lg", "xl"]
-    data = {i: width for i in size}
-    return data
-
-def width_dict_multi(small, medium, large):
-    return {"xs": small, "sm": small, "md": medium, "lg": large, "xl": large}
+from helper_functions import *
 
 
 def build_header_bar():
@@ -21,26 +9,25 @@ def build_header_bar():
             build_banner(),
             html.Br(),
             build_banner_2(),
-            html.Br(),
     ])
     
+
 def build_banner():
     
     return html.Div(className="banner", children=[
         dbc.Row([
-            dbc.Col(html.A(html.Img(src=dash.get_asset_url("logo.png")), href="/"), **width_dict_multi(3, "auto", "auto")), 
-            dbc.Col(width="auto", **width_dict_multi(9, "auto", "auto"),      children=[
+            dbc.Col(html.A(html.Img(src=dash.get_asset_url("logo.png")), 
+                    href="/"), 
+                    **width_dict_multi(3, "auto", "auto")), 
+            dbc.Col(width="auto", **width_dict_multi(9, "auto", "auto"), children=[
                 dbc.Row(html.H2("SRI SATHYA SAI SEVA ORGANIZATION", className="header")),
                 dbc.Row(html.H6("Madhya Pradesh", className="header"))
             ]),
         ]),
         *get_popover_data(),
         dbc.Row(id="header_tabs_1"),
-        # ],**size_dict),
-        # ThemeChangerAIO(aio_id="theme", 
-        #                 button_props={"color": "primary", "style": {"height": "auto", "width": "5vw"}},
-        #                 radio_props={"value": dbc.themes.CERULEAN})
     ])
+
 
 def build_banner_2():
     
@@ -97,8 +84,15 @@ def get_popover_data2():
     return popover_data
 
 def _get_nav_link(page):
+    external_links = {
+        "Sai One": "https://ssssompcg.org/ssssoseva_india/www/#/app/login",
+        "Sewa Coordinator": "https://www.ssssompcg.org/ssssoseva_india/PER_DETAILS/editor/login.asp"
+    }
     data = dash.page_registry[page]
-    return dbc.NavLink(data['name'], href=data["relative_path"])
+    if data["name"] in external_links:
+        return dbc.NavLink(data['name'], href=external_links[data["name"]], target="_blank",)
+    else:
+        return dbc.NavLink(data['name'], href=data["relative_path"])
 
     
 def build_intervals_div():

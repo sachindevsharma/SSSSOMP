@@ -27,18 +27,16 @@
   font: 14px var(--font)
 }
 
+
+
 * { 
-  /* justify-content: center; */
+
   font-family: "Comic Sans MS", "Comic Sans", "cursive";
   /* font-family: Calibri; */
-  align-content: center;
+  /* align-content: center; */
   align-items: center;
   box-sizing: border-box;
 }
-  /* background-color: var(--bg-color-dark); */
-  /* color: var(--font-color-dark); */
-  /* height: 100vh; */
-  /* margin: 0; */
 
 /*------------------------- DIVs ------------------------------------*/
 
@@ -55,17 +53,6 @@
   /* margin: 0 2vw */
 /* } */ 
 
-
-.wings_header {
-  background-color: rgba(132, 9, 9, 0.84);
-  color: white;
-}
-
-.wings {
-  height: 110vh;
-  background-color: white;
-  margin-top: 1vh;
-}
 
 .div_left_panel {
   height: 100%;
@@ -130,6 +117,45 @@
 }
 
 
+
+/*------------------------- WINGS ------------------------------------*/
+
+.wings_header {
+  background-color: #a3bae6;
+  color: white;
+  /* height: 10vh; */
+  padding-bottom: 2vh;
+}
+
+.wings_header H1{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.wings {
+  height: 110vh;
+  background-color: white;
+  margin-top: 1vh;
+}
+
+.wings_spiritual {
+  background-color: rgba(236, 8, 8, 0.84);
+  color: white;
+  align-items: start;
+}
+
+.wings_card {
+  background-color: #a3bae6;
+  height: 500px;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 1vh;
+}
+
+.wings_content {
+  padding-top: 1vh;
+}
 /*------------------------- BANNER ------------------------------------*/
 
 .banner {

@@ -5,7 +5,7 @@ import dash_bootstrap_components as dbc
 
 def build_wings_education():
     return html.Div([
-        dbc.Row(html.H2("Education Wing"), className="wings_header"),
+        dbc.Row(html.H1("Education Wing"), className="wings_header"),
         dbc.Row(className="wings", children=[
             dbc.Col(build_left_panel(), className="div_left_panel", width=3), 
             dbc.Col(build_right_panel(), className="div_right_panel")
@@ -15,10 +15,10 @@ def build_wings_education():
 
 def build_left_panel():
     return html.Div(className="tabs_group", children=[
-        html.Div("Bal Vikas Prayers", className="left_panel_tab",),
+        html.P("Bal Vikas Prayers", className="left_panel_tab",),
         html.Div("e-Books", className="left_panel_tab",),
         html.Div("Parenting Form", className="left_panel_tab",),
-        html.Div("Results", className="left_panel_tab",),
+        html.Div("Ba Vikas Results", className="left_panel_tab",),
         # html.Div("Geeta Vahini e-Book", className="left_panel_tab",),
         # html.Div("Maa Eshwaramma e-Book", className="left_panel_tab",),
     ])
