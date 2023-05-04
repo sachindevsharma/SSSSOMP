@@ -25,11 +25,11 @@ def callbacks_header_bar():
         # print(dir(dash.get_app()))
         print("Sachin")
         print(request.host_url)
+
         API_BASE_URL = request.host_url
-        print()
         data = requests.post(API_BASE_URL + '/api/header/options').json()
         arrow_down = "fa fa-chevron-down fa-2xs fa-beat"
-
+        print(data)
         header_tabs = [[i, " ", html.I(className=arrow_down)] 
                        if j == True else [i, " "] 
                        for i,j in zip(data["options"], data["sub_headings"])]
@@ -45,6 +45,7 @@ def callbacks_header_bar():
                                       html.I(className=tab[1], id=tab[0] + "_arrow")])) 
             for tab in header_tabs
         ]
+        print("tabs", tabs)
         
         return tabs
     
