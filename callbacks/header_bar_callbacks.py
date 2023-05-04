@@ -3,7 +3,7 @@ from dash import html, Input, State, Output, ctx
 import dash_bootstrap_components as dbc
 import requests
 from flask import request
-
+ 
 
 def callbacks_header_bar():
     @dash.callback(
@@ -23,7 +23,10 @@ def callbacks_header_bar():
     )
     def test_api(n):
         # print(dir(dash.get_app()))
+        print("Sachin")
+        print(request.host_url)
         API_BASE_URL = request.host_url
+        print()
         data = requests.post(API_BASE_URL + '/api/header/options').json()
         arrow_down = "fa fa-chevron-down fa-2xs fa-beat"
 
@@ -35,7 +38,7 @@ def callbacks_header_bar():
                        for i,j in zip(data["options"], data["sub_headings"])]
         
         true_only = [i[0] for i in header_tabs if i[1] !="" ]
-        print(true_only)
+
         tabs = [
             dbc.Col(id=tab[0], class_name="tab_name", width="auto", 
                     children=html.H6([tab[0] + " ", 

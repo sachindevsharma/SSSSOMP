@@ -63,7 +63,7 @@ def get_popover_data():
                               target=name, trigger="hover", placement="bottom-start"
                              )
         popover_data.append(popover)
-
+    
     return popover_data
 
 def get_popover_data2():
@@ -80,11 +80,11 @@ def get_popover_data2():
                               target=name+"2", trigger="hover", placement="bottom-start"
                              )
         popover_data.append(popover)
-
+    
     return popover_data
 
 def _get_nav_link(page):
-    external_links = {
+    external_links = {  
         "Sai One": "https://ssssompcg.org/ssssoseva_india/www/#/app/login",
         "Sewa Coordinator": "https://www.ssssompcg.org/ssssoseva_india/PER_DETAILS/editor/login.asp"
     }

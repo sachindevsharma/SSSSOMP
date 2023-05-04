@@ -8,31 +8,29 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
   --bg-color: #22252b;
-  --font: Roboto Slab;
   --font-color-light: black;
   --font-color-dark: #b2b2b2;
   --bg-color-light: white;
   --bg-color-dark: #1a1c23;
-  --color-success: limegreen;
-  --color-failure: red;
-  --tab-bg-color: #1a1c23;
+
   --banner-bg-color: white;
   --banner-text-color: black;
   --border-bottom: 2px solid brown;
+
+  --font-roboto: Roboto Slab;
+  --font-cursive: 'Brush Script MT', cursive;
+  --font-comic-sans: "Comic Sans MS", "Comic Sans", "cursive";
 }
 
 ::placeholder {
   text-align: center;
   justify-content: center;
-  font: 14px var(--font)
+  font: 14px var(--font-roboto)
 }
 
 
 
 * { 
-
-  font-family: "Comic Sans MS", "Comic Sans", "cursive";
-  /* font-family: Calibri; */
   /* align-content: center; */
   align-items: center;
   box-sizing: border-box;
@@ -41,17 +39,12 @@
 /*------------------------- DIVs ------------------------------------*/
 
 #main_div {
+  font-family: var(--font-comic-sans);
   width: 100%;
   /* height: 100vh; */
   margin: 0px 0px 5vh 0px;
-  font: 20px Roboto Slab !important;
   overflow-y: hidden;
 }
-/* #second_div {
-  /* background-color: var(--bg-color-dark); */
-  /* box-sizing: border-box; */
-  /* margin: 0 2vw */
-/* } */ 
 
 
 .div_left_panel {
@@ -71,6 +64,11 @@
   width: 78vw;
   float: right;
   margin-left: 1vw;
+
+}
+
+.cursive_text {
+  font-family: var(--font-cursive);
 
 }
 
@@ -116,7 +114,25 @@
   width: 100%;
 }
 
+/*------------------------- Home Page ------------------------------------*/
+.quotes_div {
+  display: flex;
+  justify-content: center;
+  font: 100px var(--font-cursive);
+  height: 10vh;
+  background-color: burlywood;
+}
 
+.home_activities .header{
+  font-family: var(--font-cursive);
+  justify-content: center;
+  display: flex;
+}
+
+.home_activities Img{
+  object-fit: fill;
+  width: 33vw;
+}
 
 /*------------------------- WINGS ------------------------------------*/
 

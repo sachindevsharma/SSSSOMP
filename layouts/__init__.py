@@ -52,15 +52,17 @@ def register_app_pages():
         ["sss_state_office", "State Office Bearers", '/state/office_bearers', build_tab6_content()],
         
         # Wings
-        ["wings_spiritual", "Spiritual Wing", '/wings/spiritual', build_wings_spiritual()],
         ["wings_education", "Education Wing", '/wings/education', build_wings_education()],
         ["wings_service", "Service Wing", '/wings/service', build_tab5_content()],
+        ["wings_spiritual", "Spiritual Wing", '/wings/spiritual', build_wings_spiritual()],
         ["wings_youth", "Youth Wing", '/wings/youth', build_tab5_content()],
 
         # Activities
-        ["activities_ps", "Prashanti Sewa", '/prashanti_sewa', build_tab5_content()],
         ["activities_dm", "Disaster Management", '/disaster_management', build_tab5_content()],
+        ["activities_ns", "Narayan Sewa", '/narayan_sewa', build_tab5_content()],
+        ["activities_ps", "Prashanti Sewa", '/prashanti_sewa', build_tab5_content()],
         ["activities_ss", "Sadhna Shivir", '/sadhna_shivir', build_tab5_content()],
+        ["activities_sd", "Swachhata se Divyata Tak", '/swachhata_se_divyata', build_tab5_content()],
         ["activities_vj", "Vidya Jyoti", '/vidya_jyoti', build_tab5_content()],
 
         # Services
