@@ -1,4 +1,4 @@
-dash==2.9.0
+dash
 dash-bootstrap-components==1.4.1
 pandas==2.0.3
 numpy==1.25.0
