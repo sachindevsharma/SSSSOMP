@@ -1,11 +1,3 @@
-from dash import html, dcc
-import plotly.graph_objs as go
-from plotly.subplots import make_subplots
-import dash_bootstrap_components as dbc
-import plotly.graph_objs as go
-import pandas as pd
-
-
 
 paper_bg_color = '#1a1c23'
 plot_bg_color  = '#30333d'
