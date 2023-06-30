@@ -1,8 +1,5 @@
 import dash
 import dash_bootstrap_components as dbc
-
-print(dir(dash))
-
 from layouts import Layout, register_app_pages
 from callbacks import Callbacks
 from apis import AppAPIs
@@ -28,7 +25,7 @@ AppAPIs(server)
 # Enable Whitenoise for serving static files from Heroku (the /static folder is seen as root by Heroku) 
 # server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/') 
 
-# register_app_pages()
+register_app_pages()
 app.layout = Layout()
 Callbacks()
 

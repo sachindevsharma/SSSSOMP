@@ -1,5 +1,5 @@
-
-from dash import html #, page_container, register_page
+import dash
+from dash import html, page_container, register_page
 
 from .header_bar import build_header_bar
 from .home_page import build_home_page
@@ -15,11 +15,11 @@ def Layout():
 
     return html.Div(id="main_div", children=[    
         build_header_bar(),
-        # html.Div(id='second_div', children=[
-        #     page_container
+        html.Div(id='second_div', children=[
+            page_container
 
-        # # END OF 2nd Division   
-        # ]),
+        # END OF 2nd Division   
+        ]),
         html.Br(),
         html.Footer(" © Copyright Sri Sathya Sai Seva Organisation Madhya Pradesh - All Rights Reserved",
             id="footer", 
