@@ -1,5 +1,6 @@
 dash==2.11.1
 dash-bootstrap-components
-# pandas
+pandas==2.0.3
+numpy==1.25.0
 requests
 # flask-restful
