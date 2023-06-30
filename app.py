@@ -1,5 +1,9 @@
 import dash
 import dash_bootstrap_components as dbc
+
+print(dash.__version__)
+print(dir(dash))
+
 from layouts import Layout, register_app_pages
 from callbacks import Callbacks
 from apis import AppAPIs
