@@ -1,8 +1,3 @@
-from flask import Flask, Response
-from flask_restful import Resource, Api
-import json 
-
-
 def DummyApis(server):
     @server.route("/api/sachin", methods=["GET", "POST"])
     def api():
