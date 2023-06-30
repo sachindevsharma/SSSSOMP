@@ -19,13 +19,13 @@ def build_banner():
             dbc.Col(html.A(html.Img(src=dash.get_asset_url("logo.png")), 
                     href="/"), 
                     **width_dict_multi(3, "auto", "auto")), 
-            dbc.Col(width="auto", **width_dict_multi(9, "auto", "auto"), children=[
+            dbc.Col(**width_dict_multi(9, "auto", "auto"), children=[
                 dbc.Row(html.H2("SRI SATHYA SAI SEVA ORGANIZATION", className="header")),
                 dbc.Row(html.H6("Madhya Pradesh", className="header"))
             ]),
         ]),
+        dbc.Row(id="header_tabs_1", children=_build_tabs()),
         *get_popover_data(),
-        dbc.Row(id="header_tabs_1"),
     ])
 
 
@@ -41,9 +41,9 @@ def build_banner_2():
                 html.H6("Madhya Pradesh", className="header")
             ]),
             dbc.Col(children=[
-                *get_popover_data2(),
                 dbc.NavbarToggler(id="navbar-toggler"),
-                dbc.Collapse(id="navbar-collapse", navbar=True, is_open=False),
+                dbc.Collapse(id="navbar-collapse", children=_build_tabs2(), navbar=True, is_open=False),
+                *get_popover_data2(),
                 
             ]),
     ])
@@ -63,6 +63,7 @@ def get_popover_data():
                               target=name, trigger="hover", placement="bottom-start"
                              )
         popover_data.append(popover)
+        print(popover_data)
     
     return popover_data
 
@@ -102,6 +103,46 @@ def build_intervals_div():
         dcc.Interval(id="i5", interval=5 * 1000, n_intervals=0),
         dcc.Interval(id="i60", interval=60 * 1000, n_intervals=0),
     ])
+
+def _build_tabs():
+    arrow_down = "fa fa-chevron-down fa-2xs fa-beat"
+    header_options = [
+            # Name, Sub headings
+            ["Sri Sathya Sai Baba", arrow_down],
+            ["SSSSOMP", ''],
+            ["Wings", arrow_down],
+            ["Activities", arrow_down],
+            ["Gallery", ''],
+            ["Services", arrow_down], 
+            ["Contact Us", ''],
+        ]
+    tabs = [
+            dbc.Col(id=tab[0], class_name="tab_name", width="auto", 
+                    children=html.H6([tab[0] + " ", 
+                                      html.I(className=tab[1], id=tab[0] + "_arrow")])) 
+            for tab in header_options
+        ]
+    return tabs
+    
+def _build_tabs2():
+    arrow_down = "fa fa-chevron-down fa-2xs fa-beat"
+    header_options = [
+            # Name, Sub headings
+            ["Sri Sathya Sai Baba", arrow_down],
+            ["SSSSOMP", ''],
+            ["Wings", arrow_down],
+            ["Activities", arrow_down],
+            ["Gallery", ''],
+            ["Services", arrow_down], 
+            ["Contact Us", ''],
+        ]
+    tabs = [
+            dbc.Col(id=tab[0]+"2", class_name="tab_name", width="auto", 
+                    children=html.H6([tab[0] + " ", 
+                                      html.I(className=tab[1], id=tab[0]+ "2" + "_arrow")])) 
+            for tab in header_options
+        ]
+    return dbc.Row(tabs, class_name="mx-auto")
 
 
 

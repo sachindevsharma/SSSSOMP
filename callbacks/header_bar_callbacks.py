@@ -17,37 +17,34 @@ def callbacks_header_bar():
         return is_open
 
 
-    @dash.callback(
-        Output("header_tabs_1", "children"),
-        Input("loading_div", "children"),
-    )
-    def test_api(n):
-        # print(dir(dash.get_app()))
-        print("Sachin")
-        print(request.host_url)
+    # @dash.callback(
+    #     Output("header_tabs_1", "children"),
+    #     Input("loading_div", "children"),
+    # )
+    # def test_api(n):
+    #     # print(dir(dash.get_app()))
+    #     print("Sachin")
+    #     print(request.host_url)
 
-        API_BASE_URL = request.host_url
-        data = requests.post(API_BASE_URL + '/api/header/options').json()
-        arrow_down = "fa fa-chevron-down fa-2xs fa-beat"
-        print(data)
-        header_tabs = [[i, " ", html.I(className=arrow_down)] 
-                       if j == True else [i, " "] 
-                       for i,j in zip(data["options"], data["sub_headings"])]
+    #     API_BASE_URL = request.host_url
+    #     data = requests.post(API_BASE_URL + '/api/header/options').json()
+    #     arrow_down = "fa fa-chevron-down fa-2xs fa-beat"
+    #     header_tabs = [[i, " ", html.I(className=arrow_down)] 
+    #                    if j == True else [i, " "] 
+    #                    for i,j in zip(data["options"], data["sub_headings"])]
         
-        header_tabs = [[i, arrow_down] if j == True else [i, ""] 
-                       for i,j in zip(data["options"], data["sub_headings"])]
+    #     header_tabs = [[i, arrow_down] if j == True else [i, ""] 
+    #                    for i,j in zip(data["options"], data["sub_headings"])]
         
-        true_only = [i[0] for i in header_tabs if i[1] !="" ]
+    #     true_only = [i[0] for i in header_tabs if i[1] != "" ]
+    #     tabs = [
+    #         dbc.Col(id=tab[0], class_name="tab_name", width="auto", 
+    #                 children=html.H6([tab[0] + " ", 
+    #                                   html.I(className=tab[1], id=tab[0] + "_arrow")])) 
+    #         for tab in header_tabs
+    #     ]
 
-        tabs = [
-            dbc.Col(id=tab[0], class_name="tab_name", width="auto", 
-                    children=html.H6([tab[0] + " ", 
-                                      html.I(className=tab[1], id=tab[0] + "_arrow")])) 
-            for tab in header_tabs
-        ]
-        print("tabs", tabs)
-        
-        return tabs
+    #     return tabs
     
     # output_list, input_list, state_list = [], [], []
     # data = requests.post(API_BASE_URL + '/api/header/options').json()
@@ -73,22 +70,22 @@ def callbacks_header_bar():
 
     
     
-    @dash.callback(
-        Output("navbar-collapse", "children"),
-        Input("loading_div", "children"),
-    )
-    def test_api(n):
-        API_BASE_URL = request.host_url
-        data = requests.post(API_BASE_URL + '/api/header/options').json()
-        arrow_down = html.I(className="fa fa-chevron-down fa-2xs fa-beat")
+    # @dash.callback(
+    #     Output("navbar-collapse", "children"),
+    #     Input("loading_div", "children"),
+    # )
+    # def test_api(n):
+    #     API_BASE_URL = request.host_url
+    #     data = requests.post(API_BASE_URL + '/api/header/options').json()
+    #     arrow_down = html.I(className="fa fa-chevron-down fa-2xs fa-beat")
 
-        header_tabs = [[i, " ", arrow_down] if j == True else [i, " "] 
-                       for i,j in zip(data["options"], data["sub_headings"])]
-        # fa-duotone fa-square-chevron-down
-        tabs = [dbc.Col(html.H6(i), id=i[0]+"2", class_name="tab_name", width="auto") 
-                for i in header_tabs]
+    #     header_tabs = [[i, " ", arrow_down] if j == True else [i, " "] 
+    #                    for i,j in zip(data["options"], data["sub_headings"])]
+    #     # fa-duotone fa-square-chevron-down
+    #     tabs = [dbc.Col(html.H6(i), id=i[0]+"2", class_name="tab_name", width="auto") 
+    #             for i in header_tabs]
         
-        return dbc.Row(tabs, class_name="mx-auto")
+    #     return dbc.Row(tabs, class_name="mx-auto")
 
 
     

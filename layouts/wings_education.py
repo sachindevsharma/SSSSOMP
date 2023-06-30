@@ -18,7 +18,7 @@ def build_left_panel():
         html.P("Bal Vikas Prayers", className="left_panel_tab",),
         html.Div("e-Books", className="left_panel_tab",),
         html.Div("Parenting Form", className="left_panel_tab",),
-        html.Div("Ba Vikas Results", className="left_panel_tab",),
+        html.Div("Bal Vikas Results", className="left_panel_tab",),
         # html.Div("Geeta Vahini e-Book", className="left_panel_tab",),
         # html.Div("Maa Eshwaramma e-Book", className="left_panel_tab",),
     ])

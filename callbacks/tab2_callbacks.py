@@ -1,8 +1,4 @@
-from dash import Input, State, Output
-import plotly.graph_objects as go
-from nsetools import Nse
-import pandas as pd 
-nse = Nse()
+
 
 # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv')
 
