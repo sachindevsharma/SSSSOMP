@@ -1,3 +1,6 @@
+import dash 
+print(dash.__version__)
+print(dir(dash))
 from dash import html, register_page, page_container
 
 from .header_bar import build_header_bar
