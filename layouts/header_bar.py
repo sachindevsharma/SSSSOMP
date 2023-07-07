@@ -5,6 +5,7 @@ from helper_functions import *
 
 
 def build_header_bar():
+    print("header bar")
     return html.Div([
             build_banner(),
             html.Br(),
@@ -63,7 +64,7 @@ def get_popover_data():
                               target=name, trigger="hover", placement="bottom-start"
                              )
         popover_data.append(popover)
-        print(popover_data)
+        # print(popover_data)
     
     return popover_data
 
