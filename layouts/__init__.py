@@ -14,11 +14,11 @@ def Layout():
 
     return html.Div(id="main_div", children=[    
         build_header_bar(),
-        html.Div(id='second_div', children=[
-            page_container
+        # html.Div(id='second_div', children=[
+        #     page_container
 
-        # END OF 2nd Division   
-        ]),
+        # # END OF 2nd Division   
+        # ]),
         html.Br(),
         html.Footer(" © Copyright Sri Sathya Sai Seva Organisation Madhya Pradesh - All Rights Reserved",
             id="footer", 

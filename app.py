@@ -21,11 +21,11 @@ app.config["suppress_callback_exceptions"] = True
 server = app.server 
 
 # print(dash.DASH_URL_BASE_PATHNAME)
-AppAPIs(server)
 # Enable Whitenoise for serving static files from Heroku (the /static folder is seen as root by Heroku) 
 # server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/') 
 
-register_app_pages()
+# AppAPIs(server)
+# register_app_pages()
 app.layout = Layout()
 Callbacks()
 
